@@ -44,6 +44,7 @@ fi
 current_host=$(hostname)
 echo "🖥️ Hostname atual: $current_host"
 read -p "Deseja trocar o hostname? (s/n): " trocar
+
 if [[ "$trocar" == "s" || "$trocar" == "S" ]]; then
   read -p "Informe o novo hostname: " novo_host
   hostnamectl set-hostname "$novo_host"
@@ -51,6 +52,7 @@ if [[ "$trocar" == "s" || "$trocar" == "S" ]]; then
 else
   echo "ℹ️ Mantendo hostname atual: $current_host"
 fi
+
 echo ""
 
 # Executa o cid-gtk
