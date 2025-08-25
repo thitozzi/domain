@@ -29,17 +29,6 @@ apt -y install cid cid-gtk
 
 echo "✅ Instalação concluída!"
 
-# Verifica se já está no domínio
-if [ -f /etc/cid.conf ]; then
-  echo "ℹ️ Esta máquina já está ingressada em um domínio."
-  read -p "Deseja forçar a reinserção no domínio? (s/n): " forcar
-  if [[ "$forcar" != "s" && "$forcar" != "S" ]]; then
-    echo "👍 Saindo sem alterações."
-    exit 0
-  fi
-  echo "⚠️ Reinserindo no domínio..."
-fi
-
 # Executa o cid-gtk
 echo "🚀 Abrindo interface do CID para ingresso no domínio..."
 cid-gtk
