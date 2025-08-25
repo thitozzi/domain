@@ -40,21 +40,6 @@ if [ -f /etc/cid.conf ]; then
   echo "⚠️ Reinserindo no domínio..."
 fi
 
-# Mostra o hostname atual e pergunta se quer trocar
-current_host=$(hostname)
-echo "🖥️ Hostname atual: $current_host"
-read -p "Deseja trocar o hostname? (s/n): " trocar
-
-if [[ "$trocar" == "s" || "$trocar" == "S" ]]; then
-  read -p "Informe o novo hostname: " novo_host
-  hostnamectl set-hostname "$novo_host"
-  echo "✅ Hostname alterado para: $novo_host"
-else
-  echo "ℹ️ Mantendo hostname atual: $current_host"
-fi
-
-echo ""
-
 # Executa o cid-gtk
 echo "🚀 Abrindo interface do CID para ingresso no domínio..."
 cid-gtk
